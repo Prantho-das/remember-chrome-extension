@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "My Reminder",
+  "description": "Remind Me My Work",
+  "version": "1.0",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "daily_task.png"
+  },
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "matches": ["*://*/*"]
+    }
+  ],
+  "permissions": [
+    "notifications",
+    "alarms"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
