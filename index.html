@@ -1,114 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Daily Remeber</title>
     <style>
-        * {
-            margin: 0rem;
-            padding: 0rem;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0rem;
+        padding: 0rem;
+        box-sizing: border-box;
+      }
 
+      :root {
+        --primary: indigo;
+        --dark-primary: rgb(50, 0, 85);
+        --secondary: rgb(215, 215, 215);
+        --myWhite: white;
+      }
+
+      @media (prefers-color-scheme: dark) {
         :root {
-            --primary: indigo;
-            --dark-primary: rgb(50, 0, 85);
-            --secondary: rgb(215, 215, 215);
+          --primary: purple;
+          --dark-primary: rgb(83, 0, 83);
+          --secondary: rgb(176, 176, 176);
+          --myWhite: black;
         }
+      }
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --primary: purple;
-                --dark-primary: rgb(83, 0, 83);
-                --secondary: rgb(176, 176, 176);
-            }
-        }
+      .container {
+        min-width: max-content;
+        width: 100%;
+        padding: 1rem;
+      }
 
-        .container {
-            min-width: max-content;
-            width: 100%;
-            padding: 1rem;
-        }
+      .container h2 {
+        margin-bottom: 0.5rem;
+      }
 
-        .container h2 {
-            margin-bottom: 0.5rem;
-        }
+      .form-control {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
 
-        .form-control {
-            width: 100%;
-            margin-bottom: 0.5rem;
-        }
+      .form-control input {
+        outline: none;
+        padding: 0.4rem;
+        border-radius: 0.2rem;
+        border: 0.1rem solid var(--secondary);
+        width: 100%;
+      }
 
-        .form-control input {
-            outline: none;
-            padding: 0.4rem;
-            border-radius: 0.2rem;
-            border: 0.1rem solid var(--secondary);
-            width: 100%;
-        }
+      .form-control label {
+        display: block;
+        margin-bottom: 0.3rem;
+      }
 
-        .form-control label {
-            display: block;
-            margin-bottom: 0.3rem;
-        }
+      .btn {
+        padding: 0.5rem 0.7rem;
+        border-radius: 0.2rem;
+        border: 0.1rem solid var(--secondary);
+        outline: none;
+        cursor: pointer;
+        font-size: medium;
+        transition: all 0.4s;
+        width: 100%;
+      }
 
-        .btn {
-            padding: 0.5rem 0.7rem;
-            border-radius: 0.2rem;
-            border: 0.1rem solid var(--secondary);
-            outline: none;
-            cursor: pointer;
-            font-size: medium;
-            transition: all 0.4s;
-            width: 100%;
-        }
+      .btn-primary {
+        background-color: var(--primary);
+        color: var(--myWhite);
+      }
 
-        .btn-primary {
-            background-color: var(--primary);
-            color: var(--secondary);
-        }
+      .btn-primary:hover {
+        background-color: var(--dark-primary);
+      }
 
-        .btn-primary:hover {
-            background-color: var(--dark-primary);
-        }
+      .btn-outline {
+        color: var(--dark-primary);
+        background-color: transparent;
+        border: 0.1rem solid var(--dark-primary);
+      }
 
-        .btn-outline {
-            color: var(--dark-primary);
-            background-color: transparent;
-            border: 0.1rem solid var(--dark-primary);
-        }
+      .btn-outline:hover {
+        background-color: var(--primary);
+        color: var(--secondary);
+      }
 
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: var(--secondary);
-        }
+      .mt-2 {
+        margin-top: 0.2rem;
+      }
 
-        .mt-2 {
-            margin-top: 0.2rem;
-        }
-
-        .mt-5 {
-            margin-top: 0.5rem;
-        }
+      .mt-5 {
+        margin-top: 0.5rem;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <h2>My EveryDay Reminder</h2>
-        <div class="form-control">
-            <label for="myDate">Enter Date</label>
-            <input type="date" id="myDate" />
-        </div>
-        <div class="form-control">
-            <label for="myTime">Enter Time</label>
-            <input type="time" id="myTime" />
-        </div>
-        <button class="btn btn-primary">Remeber Me</button>
-        <button class="btn btn-outline mt-5">Remeber List</button>
+      <h2>My EveryDay Reminder</h2>
+      <div class="form-control">
+        <label for="myTime">Enter Title</label>
+        <input type="text" id="myTitle" />
+      </div>
+      <div class="form-control">
+        <label for="myDate">Enter Date</label>
+        <input type="date" id="myDate" />
+      </div>
+      <div class="form-control">
+        <label for="myTime">Enter Time</label>
+        <input type="time" id="myTime" />
+      </div>
+      <button class="btn btn-primary" onsubmit="store_every_day_reminder">
+        Remember Me
+      </button>
+      <button class="btn btn-outline mt-5">Remember List</button>
     </div>
-</body>
-
+    <script src="main.js"></script>
+  </body>
 </html>

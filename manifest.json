@@ -9,13 +9,18 @@
   },
   "content_scripts": [
     {
-      "js": ["content.js"],
-      "matches": ["*://*/*"]
+      "js": [
+        "content.js"
+      ],
+      "matches": [
+        "*://*/*"
+      ]
     }
   ],
   "permissions": [
     "notifications",
-    "alarms"
+    "alarms",
+    "storage"
   ],
   "background": {
     "service_worker": "background.js"
